@@ -20,17 +20,17 @@ public class LancamentoFinanceiroEndpoint {
         this.lancamentoFinanceiroRepository = lancamentoFinanceiroRepository;
     }
 
-    @GetMapping("/lancamentos_financeiros")
+    @GetMapping("/lancamentofinanceiro")
     public List<LancamentoFinanceiro> getLancamentosFinanceiros() {
         return StreamSupport.stream(lancamentoFinanceiroRepository.findAll().spliterator(), false).collect(Collectors.toList());
     }
 
-    @PostMapping("/lancamentos_financeiros")
+    @PostMapping("/lancamentofinanceiro")
     public LancamentoFinanceiro create(@RequestBody LancamentoFinanceiro lancamentoFinanceiro) {
         return lancamentoFinanceiroRepository.save(lancamentoFinanceiro);
     }
 
-    @DeleteMapping("/lancamentos_financeiros")
+    @DeleteMapping("/lancamentofinanceiro")
     public void delete(Long idLancamentoFinanceiro) {
         if (lancamentoFinanceiroRepository.existsById(idLancamentoFinanceiro)) {
             lancamentoFinanceiroRepository.deleteById(idLancamentoFinanceiro);
