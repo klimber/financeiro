@@ -32,6 +32,10 @@ public class LancamentoFinanceiroEndpoint {
 
     @DeleteMapping("/lancamentos_financeiros")
     public void delete(Long idLancamentoFinanceiro) {
-        lancamentoFinanceiroRepository.deleteById(idLancamentoFinanceiro);
+        if (lancamentoFinanceiroRepository.existsById(idLancamentoFinanceiro)) {
+            lancamentoFinanceiroRepository.deleteById(idLancamentoFinanceiro);
+        } else {
+            throw new IllegalArgumentException("O lançamento com o id " + idLancamentoFinanceiro + " não existe");
+        }
     }
 }
