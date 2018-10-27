@@ -46,6 +46,8 @@ public class LancamentoFinanceiro {
     private String recebedorPagador;
 
     @NotNull
+    private TipoLancamento tipoLancamento;
+
     private BigDecimal valor;
 
     public Long getId() {
