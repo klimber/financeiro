@@ -29,4 +29,9 @@ public class UsuarioEndpoint {
     public <E> List<E> toList(Iterable<E> iterable) {
         return StreamSupport.stream(iterable.spliterator(), false).collect(Collectors.toList());
     }
+
+    @DeleteMapping("/usuarios")
+    public void delete(Long idUsuario) {
+        usuarioRepository.deleteById(idUsuario);
+    }
 }
